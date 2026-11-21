@@ -1,6 +1,11 @@
-import { NavLink, Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet, useNavigate } from "react-router-dom";
 
 export default function Layout() {
+  const navigate = useNavigate();
+  function handleLogout() {
+    localStorage.removeItem("eloopSession");
+    navigate("/welcome", { replace: true });
+  }
   return (
     <>
       <header className="site-header">
@@ -10,9 +15,8 @@ export default function Layout() {
             <NavLink to="/marketplace">Marketplace</NavLink>
             <NavLink to="/sell">Sell an item</NavLink>
             <NavLink to="/dashboard">Dashboard</NavLink>
-            <NavLink to="/login">Login</NavLink>
           </nav>
-          <Link className="nav-cta" to="/register">Register</Link>
+          <button className="nav-cta nav-logout" type="button" onClick={handleLogout}>Logout</button>
         </div>
       </header>
       <main><Outlet /></main>

@@ -49,13 +49,16 @@ The adapter currently expects:
 These are frontend expectations, not a guarantee that the current backend already implements every route. Compare them with the actual Express routes and adjust only `src/services/api.js` to match. In particular, confirm the prediction route, upload field name, response property names, and listing payload shape with the backend developer.
 
 ## 5. Included pages
-- `/` Home (with Login and Register entry points)
+- `/welcome` Public first-visit page with Login and Register entry points
 - `/login` Login with email and password
 - `/register` Registration with name, email, and password
-- `/marketplace` Browse/search/filter listings
-- `/sell` Upload photo, request category suggestion, publish listing
-- `/listing/:id` Listing details and purchase request form
-- `/dashboard` Demo listing and request summary
+- `/` Home (requires an active login session)
+- `/marketplace` Browse/search/filter listings (protected)
+- `/sell` Upload photo, request category suggestion, publish listing (protected)
+- `/listing/:id` Listing details and purchase request form (protected)
+- `/dashboard` Demo listing and request summary (protected)
+
+All main-site routes are guarded in the React router. Visitors without a session are redirected to `/welcome`; after login or registration they are sent to `/`. The navigation includes Logout, which clears the demo session.
 
 ## 6. Important notes
 - The category prediction shown in mock mode is only a filename-based demo. It does not run the trained MobileNetV3 model.

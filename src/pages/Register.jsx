@@ -14,14 +14,16 @@ export default function Register() {
       setError("An account with this email already exists. Please log in.");
       return;
     }
-    localStorage.setItem("eloopUser", JSON.stringify({ name: form.name.trim(), email: form.email.trim(), password: form.password }));
-    navigate("/login", { state: { registered: true } });
+    const newUser = { name: form.name.trim(), email: form.email.trim(), password: form.password };
+    localStorage.setItem("eloopUser", JSON.stringify(newUser));
+    localStorage.setItem("eloopSession", JSON.stringify({ name: newUser.name, email: newUser.email }));
+    navigate("/", { replace: true });
   }
 
   return (
     <section className="auth-shell">
       <div className="auth-card">
-        <Link to="/" className="auth-brand"><span className="brand-mark">↻</span> E-LOOP</Link>
+        <Link to="/welcome" className="auth-brand"><span className="brand-mark">↻</span> E-LOOP</Link>
         <span className="eyebrow">JOIN THE CIRCULAR MOVEMENT</span>
         <h1>Create your account</h1>
         <p className="auth-subtitle">A few details are all you need to get started.</p>

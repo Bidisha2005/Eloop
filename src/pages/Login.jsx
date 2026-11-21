@@ -15,13 +15,13 @@ export default function Login() {
       return;
     }
     localStorage.setItem("eloopSession", JSON.stringify({ name: savedUser.name, email: savedUser.email }));
-    navigate("/dashboard");
+    navigate("/", { replace: true });
   }
 
   return (
     <section className="auth-shell">
       <div className="auth-card">
-        <Link to="/" className="auth-brand"><span className="brand-mark">↻</span> E-LOOP</Link>
+        <Link to="/welcome" className="auth-brand"><span className="brand-mark">↻</span> E-LOOP</Link>
         <span className="eyebrow">WELCOME BACK</span>
         <h1>Log in to your account</h1>
         <p className="auth-subtitle">Pick up where you left off and keep useful electronics in circulation.</p>

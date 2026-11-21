@@ -13,7 +13,7 @@ export default function Home() {
           <span className="eyebrow light">THE CIRCULAR ELECTRONICS MARKETPLACE</span>
           <h1>Old tech.<br /><em>New possibilities.</em></h1>
           <p>Give unwanted electronics a second life. Sell, reuse, refurbish, and recycle — all in one place.</p>
-          <div className="hero-actions"><Link to="/login" className="button button-lime">Login <span>↗</span></Link><Link to="/register" className="button button-outline">Register</Link><Link to="/marketplace" className="text-link light-link">Explore marketplace →</Link></div>
+          <div className="hero-actions"><Link to="/marketplace" className="button button-lime">Explore marketplace <span>↗</span></Link><Link to="/sell" className="text-link light-link">List an item →</Link></div>
           <div className="hero-note"><span className="pulse-dot"></span> A smarter way to keep electronics in the loop</div>
         </div>
         <div className="hero-art" aria-hidden="true">
